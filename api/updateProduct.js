@@ -5,7 +5,7 @@ const updateProduct = (request, response) => {
     const { film, brand, price, amount } = request.body;
 
     pool.query(
-        'UPDATE products SET film = $1, brand = $2, price = $3, amount = $4 WHERE id = $5',
+        'UPDATE products SET product = $1, brand = $2, price = $3, amount = $4 WHERE id = $5',
         [film, brand, price, amount, id],
         (error, results) => {
             if (error) {
