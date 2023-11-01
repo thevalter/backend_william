@@ -1,11 +1,9 @@
 const pool = require('./config');
 
 const createProduct = (request, response) => {
-    const { film, brand, price, amount} = request.body;
+    const { product, brand, price, amount} = request.body;
 
-    console.log(film)
-
-    pool.query('INSERT INTO products (film, brand, price, amount) VALUES ($1, $2, $3, $4) RETURNING *', [film, brand, price, amount], (error, results) => {
+    pool.query('INSERT INTO products (product, brand, price, amount) VALUES ($1, $2, $3, $4) RETURNING *', [product, brand, price, amount], (error, results) => {
         if (error) {
             throw error;
         };
